@@ -166,8 +166,13 @@ V.0.0
 const username = localStorage.getItem("username");
 
 if(username){
+
     document.getElementById("userName").innerHTML =
     "👤 " + username;
+
+    document.querySelector(".login-btn").innerHTML =
+    "✅ Logged In";
+
 }
 
 // CHECK LOGIN
