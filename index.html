@@ -217,7 +217,33 @@ function futureUpdate(){
     alert("🚀 Wait For Future Updates!");
 }
 
+// AFTER SUCCESSFUL LOGIN
 
+const user = firebase.auth().currentUser;
+
+// SAVE LOGIN STATUS
+localStorage.setItem("loggedIn", "true");
+
+// SAVE USERNAME
+let username = "User";
+
+if(user.displayName){
+    username = user.displayName;
+}
+else if(user.email){
+    username = user.email.split("@")[0];
+}
+
+localStorage.setItem("username", username);
+
+// REDIRECT
+const params = new URLSearchParams(window.location.search);
+
+const redirect = params.get("redirect");
+
+if(redirect){
+    window.location.href = redirect;
+}
 
 </script>
 
