@@ -15,6 +15,18 @@ body{
     text-align:center;
 }
 
+/* USER NAME */
+
+.user-name{
+    position:fixed;
+    top:20px;
+    left:20px;
+    background:#1e293b;
+    padding:10px 15px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
 /* LOGIN BUTTON */
 
 .login-btn{
@@ -89,6 +101,13 @@ h1{
 
 <body>
 
+<!-- USER NAME -->
+
+<div class="user-name" id="userName">
+👤 Guest
+</div>
+
+
 <!-- LOGIN -->
 
 <a href="#" onclick="loginPage()" class="login-btn">
@@ -143,6 +162,14 @@ V.0.0
 
 <script>
 
+// USERNAME DISPLAY
+const username = localStorage.getItem("username");
+
+if(username){
+    document.getElementById("userName").innerHTML =
+    "👤 " + username;
+}
+
 // CHECK LOGIN
 const loggedIn = localStorage.getItem("loggedIn");
 
@@ -184,6 +211,8 @@ function loginPage(){
 function futureUpdate(){
     alert("🚀 Wait For Future Updates!");
 }
+
+
 
 </script>
 
