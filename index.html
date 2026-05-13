@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunset Universe</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+}
+
+/* LOGIN BUTTON */
+
+.login-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    text-decoration:none;
+    color:white;
+    background:#ff6600;
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    transform:scale(1.05);
+    background:#ff8800;
+}
+
+/* HEADER */
+
+header{
+    padding:60px 20px;
+    background:linear-gradient(45deg,#ff6b00,#ff0080);
+}
+
+h1{
+    font-size:42px;
+}
+
+/* SECTIONS */
+
+.section{
+    padding:30px 20px;
+}
+
+.links{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+}
+
+.links a{
+    text-decoration:none;
+    color:white;
+    background:#1e293b;
+    padding:15px 25px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.links a:hover{
+    background:#ff6600;
+    transform:scale(1.05);
+}
+
+/* VERSION */
+
+.version{
+    position:fixed;
+    bottom:10px;
+    right:15px;
+    color:#999;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<a href="#" onclick="loginPage()" class="login-btn">
+🔐 Login First
+</a>
+
+<!-- HEADER -->
+
+<header>
+    <h1>🌅 Sunset Universe</h1>
+    <p>All Sunset Projects In One Place</p>
+</header>
+
+<!-- CONNECT -->
+
+<div class="section">
+
+    <h2>📱 Connect With Us</h2>
+
+    <div class="links">
+        <a href="https://www.youtube.com/@sunsetyoutubechannel1758"class="protected">YouTube</a>
+        <a href="https://www.instagram.com/official.sun.setyt/"class="protected">Instagram</a>
+        <a href="#" onclick="futureUpdate()">
+Telegram
+</a>
+
+        <a href="#" onclick="futureUpdate()">
+WhatsApp
+</a>
+    </div>
+
+</div>
+
+<!-- WEBSITES -->
+
+<div class="section">
+
+    <h2>🌍 Our Websites</h2>
+
+    <div class="links">
+        <a href="https://sun-set-yt.github.io/Sun-Set-kart/"class="protected">🛒 Shop On Amazon</a>
+        <a href="https://sun-set-yt.github.io/prank-site/"class="protected">😂 Prank With Friends</a>
+    </div>
+
+</div>
+
+<!-- VERSION -->
+
+<div class="version">
+V.0.0
+</div>
+
+<script>
+
+// CHECK LOGIN
+const loggedIn = localStorage.getItem("loggedIn");
+
+// ALL WEBSITE LINKS
+const protectedLinks = document.querySelectorAll(".protected");
+
+// CLICK SYSTEM
+protectedLinks.forEach(link => {
+
+    link.addEventListener("click", function(e){
+
+        // NOT LOGGED IN
+        if(loggedIn !== "true"){
+
+            e.preventDefault();
+
+            alert("🔐 Login First To Continue!");
+
+            // OPTIONAL AUTO REDIRECT
+            window.location.href =
+            "https://sun-set-yt.github.io/authentication/?redirect=" +
+            encodeURIComponent(window.location.href);
+        }
+
+    });
+
+});
+
+//Login Button
+function loginPage(){
+
+    window.location.href =
+    "https://sun-set-yt.github.io/authentication/?redirect=" +
+    encodeURIComponent(window.location.href);
+
+}
+
+// FUTURE UPDATE BUTTONS
+function futureUpdate(){
+    alert("🚀 Wait For Future Updates!");
+}
+
+</script>
+
+</body>
+</html>
