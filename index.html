@@ -163,20 +163,18 @@ V.0.0
 <script>
 
 // USERNAME DISPLAY
-const username = localStorage.getItem("username");
+const username = localStorage.getItem("firebaseUser");
 
 if(username){
-
     document.getElementById("userName").innerHTML =
     "👤 " + username;
-
-    document.querySelector(".login-btn").innerHTML =
-    "✅ Logged In";
+   // LOGIN BUTTON CHANGE
+    document.querySelector(".login-btn").innerHTML = "✅ Logged In";
 
 }
 
-// CHECK LOGIN
-const loggedIn = localStorage.getItem("loggedIn");
+const loggedIn = localStorage.getItem("firebaseUser");
+
 
 // ALL WEBSITE LINKS
 const protectedLinks = document.querySelectorAll(".protected");
@@ -187,7 +185,7 @@ protectedLinks.forEach(link => {
     link.addEventListener("click", function(e){
 
         // NOT LOGGED IN
-        if(loggedIn !== "true"){
+        if(loggedIn){
 
             e.preventDefault();
 
@@ -217,33 +215,7 @@ function futureUpdate(){
     alert("🚀 Wait For Future Updates!");
 }
 
-// AFTER SUCCESSFUL LOGIN
 
-const user = firebase.auth().currentUser;
-
-// SAVE LOGIN STATUS
-localStorage.setItem("loggedIn", "true");
-
-// SAVE USERNAME
-let username = "User";
-
-if(user.displayName){
-    username = user.displayName;
-}
-else if(user.email){
-    username = user.email.split("@")[0];
-}
-
-localStorage.setItem("username", username);
-
-// REDIRECT
-const params = new URLSearchParams(window.location.search);
-
-const redirect = params.get("redirect");
-
-if(redirect){
-    window.location.href = redirect;
-}
 
 </script>
 
